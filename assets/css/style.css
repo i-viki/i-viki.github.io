@@ -898,7 +898,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
+  color: #e88f35;
 }
 
 .portfolio .portfolio-wrap:hover::before {
