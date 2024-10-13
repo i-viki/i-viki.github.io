@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+sitemap: https://i-viki.github.io/sitemap.xml
