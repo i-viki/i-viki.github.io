@@ -13,7 +13,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/bg.jpg") top right no-repeat;
+  background: #040404 url("../img/bg.webp") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -65,7 +65,7 @@ h6 {
 }
 
 #header h1 {
-  font-size: 48px;
+  font-size: 3rem;
   margin: 0;
   padding: 0;
   line-height: 1;
