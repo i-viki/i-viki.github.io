@@ -154,7 +154,7 @@
   const typed = select('.typed')
   if (typed) {
       new Typed('.typed', {
-      strings: ['Programmer', 'Tech Geek'],
+      strings: ['Programmer', 'Developer', 'Tech Geek'],
       loop: false,
       cursorChar: '',
       typeSpeed: 100,
