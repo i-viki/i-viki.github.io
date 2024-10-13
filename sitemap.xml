@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root URL -->
+  <url>
+    <loc>https://i-viki.github.io/</loc>
+    <lastmod>2024-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- index.html URL -->
+  <url>
+    <loc>https://i-viki.github.io/index.html</loc>
+    <lastmod>2024-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- #about Section -->
+  <url>
+    <loc>https://i-viki.github.io/#about</loc>
+    <lastmod>2024-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- #resume Section -->
+  <url>
+    <loc>https://i-viki.github.io/#resume</loc>
+    <lastmod>2024-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- #contact Section -->
+  <url>
+    <loc>https://i-viki.github.io/#contact</loc>
+    <lastmod>2024-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  </urlset>
