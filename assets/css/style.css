@@ -25,7 +25,7 @@
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
-/* Smooth scroll */
+
 :root {
   scroll-behavior: smooth;
 }
@@ -65,12 +65,7 @@ body {
   transform: translate(-50%, -50%);
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(to right,
-      #ffae60 0%,
-      #ffc88f 25%,
-      #ffffff 50%,
-      #ffc88f 75%,
-      #ffae60 100%);
+  background: linear-gradient(45deg, var(--accent-color), var(--default-color), var(--accent-color), var(--default-color));
   background-size: 200% auto;
   background-position: 0% center;
   background-clip: text;
@@ -78,8 +73,121 @@ body {
   -webkit-text-fill-color: transparent;
   text-decoration: none;
   white-space: nowrap;
-  transition: all 0.3s ease-in-out;
-  animation: shine 3s infinite linear;
+  transition: all 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  animation: shine 60s infinite linear;
+}
+
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--blur-effect);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.5s ease-in-out, color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.floating-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff7eb3, #ff758c, #ff7eb3, #ff758c, #ff8a65, #ffdf7e);
+  background-size: 300% 300%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  animation: gradientMove 6s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+
+.floating-button:hover::before {
+  opacity: 1;
+}
+
+.floating-button:hover {
+  color: black;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Small Color Indicator */
+.color-indicator {
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+/* Text remains visible */
+.floating-button span {
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .floating-button {
+    width: 50px;
+    /* Circular button */
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    /* Ensure it stays fixed */
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Simple glassmorphic background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .floating-button::before {
+    display: none !important;
+  }
+
+  .button-text {
+    display: none !important;
+  }
+
+  .color-indicator {
+    width: 25px;
+    height: 25px;
+    z-index: 2;
+  }
 }
 
 

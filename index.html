@@ -50,6 +50,18 @@
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <script>
+        function changeAccentColor() {
+            let newColor = getRandomColor();
+            document.documentElement.style.setProperty('--accent-color', newColor);
+        }
+
+        function getRandomColor() {
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
+        }
+    </script>
 </head>
 
 
@@ -57,6 +69,10 @@
 
   <!-- ======= Header ======= -->
   <header id="header">
+    <div>    <button class="floating-button" onclick="changeAccentColor()">
+      <span class="button-text">🎨 Change Accent</span>
+      <span class="color-indicator"></span> <!-- Small color circle -->
+  </button></div>
     <div class="container">
       <h1><a href="index.html">Jaya Vignesh</a></h1>
 
