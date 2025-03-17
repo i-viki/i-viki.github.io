@@ -161,21 +161,34 @@
   }
   window.addEventListener('load', aosInit);
 
-
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
   /**
    * Typed
    */
-  const typed = select('.typed')
-  if (typed) {
+  document.addEventListener("DOMContentLoaded", function () {
+    const extraText = document.getElementById('extra-text');
     new Typed('.typed', {
-      strings: ['Programmer', 'Developer', 'Tech Geek'],
+      strings: ['Programmer', 'Tech Geek', 'Developer'],
       loop: false,
       cursorChar: '',
       typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 100,
+      backSpeed: 5,
+      backDelay: 1000,
+      onComplete: () => {
+        setTimeout(() => {
+          extraText.classList.add('show-text');
+        }, 100);
+      }
     });
-  }
+  });
 
   /**
    * Porfolio isotope and filter

@@ -33,6 +33,9 @@
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
     rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
@@ -51,17 +54,17 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-    <script>
-        function changeAccentColor() {
-            let newColor = getRandomColor();
-            document.documentElement.style.setProperty('--accent-color', newColor);
-        }
+  <script>
+    function changeAccentColor() {
+      let newColor = getRandomColor();
+      document.documentElement.style.setProperty('--accent-color', newColor);
+    }
 
-        function getRandomColor() {
-            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-            return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
-        }
-    </script>
+    function getRandomColor() {
+      let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
+    }
+  </script>
 </head>
 
 
@@ -69,16 +72,17 @@
 
   <!-- ======= Header ======= -->
   <header id="header">
-    <div>    <button class="floating-button" onclick="changeAccentColor()">
-      <span class="button-text">🎨 Change Accent</span>
-      <span class="color-indicator"></span> <!-- Small color circle -->
-  </button></div>
+    <div> <button class="floating-button" onclick="changeAccentColor()">
+        <span class="button-text">🎨 Change Accent</span>
+        <span class="color-indicator"></span> <!-- Small color circle -->
+      </button></div>
     <div class="container">
       <h1><a href="index.html">Jaya Vignesh</a></h1>
 
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a <span class="typed"> </span> from Tamilnadu</h2>
+      <h2>I'm a <span class="typed"></span><span class="blur-text" id="extra-text" style="border-bottom:0px"> from
+          Tamilnadu.</span></h2>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
@@ -112,7 +116,7 @@
 
       <div class="section-title">
         <h2>About</h2>
-        <p>Learn more about me</p>
+        <p>More About Me</p>
       </div>
 
       <div class="row">
@@ -393,10 +397,23 @@
             <h5>2019 - 2023</h5>
             <p><em>Sri Manakula Vinayagar Engineering College, Puducherry</em></p>
             <p><strong>CGPA:</strong> 7.76</p>
-            <p><strong>Relevant Coursework:</strong>
-              Data Structures & Algorithms, Database Management Systems, Operating Systems, Computer Networks, Web
-              Development, Cloud Computing, Machine Learning
-            </p>
+            <p><strong>Relevant Coursework:</strong></p>
+            <div class="box">
+              <div class="box-sub">
+                Data Structures & Algorithms</div>
+              <div class="box-sub">
+                Database Management Systems</div>
+              <div class="box-sub">
+                Operating Systems</div>
+              <div class="box-sub">
+                Computer Networks</div>
+              <div class="box-sub">
+                Web Development</div>
+              <div class="box-sub">
+                Cloud Computing</div>
+              <div class="box-sub">
+                Machine Learning</div>
+            </div>
           </div>
 
           <div class="resume-item">
@@ -741,23 +758,27 @@
           </div>
         </div>
       </div>
-      <!-- End Contact Section -->
+    </div>
+  </section>
+  <!-- End Contact Section -->
+  <div class="preloader"></div>
+  <footer>
+    <div class="credits">
+      Designed by <a href="">jv</a>
+    </div>
+  </footer>
 
-      <div class="credits">
-        Designed by <a href="">jv</a>
-      </div>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
 
-      <!-- Vendor JS Files -->
-      <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-      <script src="assets/vendor/aos/aos.js"></script>
-
-      <!-- Template Main JS File -->
-      <script src="assets/js/main.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 
