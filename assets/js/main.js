@@ -170,6 +170,24 @@
       preloader.remove();
     });
   }
+  document.addEventListener("DOMContentLoaded", () => {
+    const waveImg = document.getElementById("wave-img");
+
+    // Change to emoji after 3 seconds (first load)
+    setTimeout(() => {
+      waveImg.src = "./assets/img/wave-still.gif"; // Static emoji image
+    }, 300);
+
+    // Show GIF on hover
+    waveImg.addEventListener("mouseenter", () => {
+      waveImg.src = "./assets/img/wave.gif";
+    });
+
+    // Switch back to emoji when not hovering
+    waveImg.addEventListener("mouseleave", () => {
+      waveImg.src = "./assets/img/wave-still.gif";
+    });
+  });
   /**
    * Typed
    */

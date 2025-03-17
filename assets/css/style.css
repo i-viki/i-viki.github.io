@@ -1,23 +1,27 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
 ::selection {
   background-color: var(--accent-color);
   color: var(--contrast-color);
 }
+
 ::-moz-selection {
   background-color: var(--accent-color);
   color: var(--contrast-color);
 }
+
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
- /* --heading-font: "Raleway", sans-serif;
+  /* --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif; */
   --heading-font: "Outfit", sans-serif;
   --nav-font: "Outfit", sans-serif;
   --outfit-font: "Outfit", sans-serif;
 }
+
 /* utilities */
 :root {
   --text-xs: .75rem;
@@ -46,10 +50,10 @@
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #000000;
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-  --hightlighter-color: rgba(255, 255, 255, 0.15);  
-  /* Highlighting color used for subtle hover effects, focus indicators, or active states */  
-  --color-neutral-900: oklch(.205 0 0);  
-  /* Deep neutral color, used for shadows, borders, or other elements requiring a dark tone */  
+  --hightlighter-color: rgba(255, 255, 255, 0.15);
+  /* Highlighting color used for subtle hover effects, focus indicators, or active states */
+  --color-neutral-900: oklch(.205 0 0);
+  /* Deep neutral color, used for shadows, borders, or other elements requiring a dark tone */
 }
 
 
@@ -280,10 +284,7 @@ h6 {
   align-items: center;
   z-index: 997;
   overflow-y: auto;
-}
-
-#header * {
-  transition: cubic-bezier(0.4, 0, 1, 1) 0.3s;
+  text-shadow: var(--heading-color);
 }
 
 #header h1 {
@@ -351,10 +352,12 @@ h6 {
   filter: blur(5px);
   transition: opacity 1.5s ease-in-out, filter 1.5s ease-in-out;
 }
+
 .show-text {
   opacity: 1;
   filter: blur(0);
 }
+
 @media (max-width: 992px) {
   #header h1 {
     font-size: 36px;
@@ -374,6 +377,18 @@ h6 {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.greetings {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.wave {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
 }
 
 /* Header Top */
@@ -404,6 +419,19 @@ h6 {
 #header.header-top .container {
   display: flex;
   align-items: center;
+}
+
+#header.header-top .container .greetings {
+  display: none;
+}
+
+#header.header-top .container .im {
+  display: none;
+}
+
+.im {
+  transform: none;
+  transition: none;
 }
 
 #header.header-top .navbar {
