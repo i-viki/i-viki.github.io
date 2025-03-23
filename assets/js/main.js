@@ -274,4 +274,120 @@
    */
   new PureCounter();
 
+  /**
+   * Floating accent color change button
+   */
+  function changeAccentColor() {
+    let newColor = getRandomColor();
+    document.documentElement.style.setProperty('--accent-color', newColor);
+
+    // Update the small color circle
+    const colorIndicator = document.querySelector(".color-indicator");
+    if (colorIndicator) {
+      colorIndicator.style.backgroundColor = newColor;
+    }
+  }
+
+  function getRandomColor() {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".floating-button");
+    if (button) {
+      button.addEventListener("click", changeAccentColor);
+    }
+  });
+
+  /**
+ * Initialize and update IST time display
+ */
+
+  function updateTime() {
+    const now = new Date();
+
+    const options = { timeZone: "Asia/Kolkata", hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit" };
+    const istTime = now.toLocaleTimeString("en-US", options);
+
+    const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+    const istOffset = 5.5 * 60 * 60 * 1000;
+    const gmtDifference = `GMT+${(istOffset / 3600000).toFixed(1)}`;
+
+    const timeElement = document.getElementById("time");
+    if (timeElement) {
+      timeElement.innerText = `${istTime} ${gmtDifference}`;
+    }
+  }
+
+  setInterval(updateTime, 1000);
+  updateTime();
+
+  /**
+   * Calculate and update real-time age display
+   */
+
+  function calculateAge() {
+    const birthDate = new Date("2002-02-27T00:00:00");
+    const now = new Date();
+
+    const diffMilliseconds = now - birthDate;
+    const years = (diffMilliseconds / (1000 * 60 * 60 * 24 * 365.2425)).toFixed(9);
+
+    const ageElement = document.getElementById("age");
+    if (ageElement) {
+      ageElement.innerText = years + " years";
+    }
+  }
+
+  setInterval(calculateAge, 100);
+  calculateAge();
+
+  /**
+   * Handle form submission 
+   */
+  document.querySelector(".php-email-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let form = new FormData(this);
+    let formEntries = new URLSearchParams();
+
+    for (let pair of form.entries()) {
+      formEntries.append(pair[0], pair[1]);
+    }
+
+    let submitButton = this.querySelector("button[type='submit']");
+    let loadingMessage = document.querySelector(".loading");
+    let errorMessage = document.querySelector(".error-message");
+    let successMessage = document.querySelector(".sent-message");
+
+    loadingMessage.style.display = "block";
+    errorMessage.style.display = "none";
+    successMessage.style.display = "none";
+    submitButton.disabled = true;
+
+    fetch("https://workerfor.formworker.workers.dev/", {
+      method: "POST",
+      body: formEntries,
+      mode: "no-cors"
+    }).then(() => {
+      loadingMessage.style.display = "none";
+      successMessage.style.display = "block";
+      this.reset();
+      setTimeout(() => {
+        successMessage.style.transition = "opacity 1s ease-out";
+        successMessage.style.opacity = "0";
+        setTimeout(() => {
+          successMessage.style.display = "none";
+          successMessage.style.opacity = "1";
+        }, 1000);
+      }, 3000);
+    }).catch(error => {
+      loadingMessage.style.display = "none";
+      errorMessage.style.display = "block";
+      console.error("❌ Form submission error:", error);
+    }).finally(() => {
+      submitButton.disabled = false;
+    });
+  });
 })()

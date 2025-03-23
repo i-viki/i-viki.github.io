@@ -20,6 +20,11 @@
   --heading-font: "Outfit", sans-serif;
   --nav-font: "Outfit", sans-serif;
   --outfit-font: "Outfit", sans-serif;
+  --mono-jetbrains: "JetBrains Mono", monospace;
+  --mono-plex: "IBM Plex Mono", monospace;
+  --mono-fira: "Fira Code", monospace;
+  --mono-space: "Space Mono", monospace;
+  --mono-source: "Source Code Pro", monospace;
 }
 
 /* utilities */
@@ -1361,8 +1366,8 @@ section .container {
 }
 
 .contact .php-email-form {
-  padding: 30px;
-  background: var(--surface-color);
+  backdrop-filter: var(--blur-effect);
+  border-radius: 0.5vw;
 }
 
 .contact .php-email-form .error-message {
@@ -1408,7 +1413,7 @@ section .container {
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
-  border-radius: 0;
+  border-radius: 0.5vw;
   box-shadow: none;
   font-size: 14px;
   background: var(--surface-color);
@@ -1444,15 +1449,16 @@ section .container {
 
 .contact .php-email-form button[type=submit] {
   background: var(--accent-color);
+  border-radius: 1.5vw;
   border: 0;
   padding: 10px 30px;
   color: var(--default-color);
   transition: 0.4s;
-  border-radius: 4px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #15bb62;
+  background: color-mix(in srgb, var(--accent-color) 30%, rgb(34, 34, 34));
+  border-radius: 1.5vw;
 }
 
 @keyframes animate-loading {
@@ -1587,4 +1593,15 @@ section .container {
   100% {
     transform: rotate(360deg);
   }
+}
+
+#age {
+  font-family: var(--mono-space);
+  font-weight: 00;
+  letter-spacing: 0.5px;
+}
+
+#time {
+  font-family: var(--mono-jetbrains);
+  display: none;
 }
