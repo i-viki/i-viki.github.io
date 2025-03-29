@@ -601,6 +601,15 @@ h6 {
   position: relative;
 }
 
+.bi {
+  color: var(--accent-color);
+}
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -625,6 +634,7 @@ section.section-show {
 section .container {
   background: rgba(0, 0, 0, 0.9);
   padding: 20px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 768px) {

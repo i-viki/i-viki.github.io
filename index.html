@@ -55,15 +55,16 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Load Scripts Asynchronously -->
   <script src="assets/js/analytics.js" defer></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 
@@ -75,7 +76,7 @@
         <span class="button-text">🎨 Change Accent</span>
         <span class="color-indicator"></span> <!-- Small color circle -->
       </button></div>
-    <div class="container">
+    <div class="container" id="sr">
       <p class="greetings">Hey, there! <img id="wave-img" class="wave" src="./assets/img/wave-still.gif"
           alt="Waving Hand"></p>
       <h1>
@@ -125,10 +126,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
+        <div class="col-lg-4" data-aos="slide-up">
           <img src="assets/img/profile/me.webp" class="img-fluid" alt="">
         </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="slide-up">
           <h3>Software Developer</h3>
           <p class="fst-italic">I Write, Test, Commit... and debug (more than I'd like to admit 😂)</p>
           <p>
@@ -316,49 +317,49 @@
             <h3>Coding</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
           <div class="icon-box">
             <i class="ri-music-line" style="color: #5578ff;"></i>
             <h3>Music</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="300">
           <div class="icon-box">
             <i class="ri-chrome-line" style="color: #e80368;"></i>
             <h3>Surfing Internet</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
           <div class="icon-box">
             <i class="ri-camera-lens-line" style="color: #e361ff;"></i>
             <h3>Photography</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
+        <div class="col-lg-3 col-md-4 mt-4" data-aos="fade-in" data-aos-delay="100">
           <div class="icon-box">
             <i class="ri-android-line" style="color: #47aeff;"></i>
             <h3>Custom Roms</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
+        <div class="col-lg-3 col-md-4 mt-4" data-aos="fade-in" data-aos-delay="200">
           <div class="icon-box">
             <i class="ri-image-edit-line" style="color: #ffa76e;"></i>
             <h3>Editing</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
+        <div class="col-lg-3 col-md-4 mt-4" data-aos="fade-in" data-aos-delay="300">
           <div class="icon-box">
             <i class="ri-movie-2-line" style="color: #11dbcf;"></i>
             <h3>Watching Movies</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
+        <div class="col-lg-3 col-md-4 mt-4" data-aos="fade-in" data-aos-delay="400">
           <div class="icon-box">
             <i class="ri-gamepad-line" style="color: #ff33cc;"></i>
             <h3>Gaming</h3>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
+        <div class="col-lg-3 col-md-4 mt-4" data-aos="fade-up" data-aos-delay="500">
           <div class="icon-box">
             <i class="ri-device-line" style="color: #b2904f;"></i>
             <h3>New Technologies</h3>
@@ -390,10 +391,10 @@
                 architecture, with hands-on experience in AWS, CI/CD pipelines, and software engineering best practices.
                 Committed to building robust, maintainable, and impactful solutions.</em></p>
             <p>
-            <ul>
-              <li>Pondicherry,INDIA</li>
-              <li>+91 90034 73449</li>
-              <li>jayavignesh324@gmail.com</li>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-geo-alt"></i> Pondicherry, INDIA</li>
+              <li><i class="bi bi-phone"></i> +91 90034 73449</li>
+              <li><i class="bi bi-envelope"></i> jayavignesh324@gmail.com</li>
             </ul>
             </p>
           </div>
@@ -513,22 +514,25 @@
             <h5>2024 - Present</h5>
             <p><em>Tata Consultancy Services (TCS), India</em></p>
             <p>
-            <ul>
-              <li>Developed and optimized <b>RESTful APIs</b> using <b>Java, JAX-RS</b>, ensuring seamless communication
-                between microservices. ⚙️</li>
-              <li>Designed and implemented <b>efficient database queries</b>, reducing execution time and enhancing
-                performance. ⚡</li>
-              <li>Modified API responses as per frontend requirements, improving UI responsiveness and data efficiency.
-                🎯</li>
-              <li>Integrated <b>MySQL</b> databases, leveraging indexing and query tuning techniques. 🗄️</li>
-              <li>Implemented <b>unit and integration tests</b> using <b>JUnit & Mockito</b> to enhance code
-                reliability. 🧪</li>
-              <li>Optimized <b>backend architecture</b> for scalability, maintainability, and high availability. 🏗️
-              </li>
-              <li>Collaborated with cross-functional teams to analyze requirements and deliver efficient, <b>secure</b>
-                solutions. 🔍</li>
-              <li>Managed <b>backend services</b>, preventing outages and ensuring high availability. 🛠️</li>
-              <li>Monitored <b>application logs</b>, proactively identifying and fixing errors. 📊</li>
+            <ul class="no-bullets">
+              <li><i class="bi bi-gear"></i> Developed and optimized <b>RESTful APIs</b> using <b>Java, JAX-RS</b>,
+                ensuring seamless communication between microservices.</li>
+              <li><i class="bi bi-lightning-charge"></i> Designed and implemented <b>efficient database queries</b>,
+                reducing execution time and enhancing performance.</li>
+              <li><i class="bi bi-bullseye"></i> Modified API responses as per frontend requirements, improving UI
+                responsiveness and data efficiency.</li>
+              <li><i class="bi bi-database"></i> Integrated <b>MySQL</b> databases, leveraging indexing and query tuning
+                techniques.</li>
+              <li><i class="bi bi-bezier"></i> Implemented <b>unit and integration tests</b> using <b>JUnit &
+                  Mockito</b> to enhance code reliability.</li>
+              <li><i class="bi bi-building"></i> Optimized <b>backend architecture</b> for scalability, maintainability,
+                and high availability.</li>
+              <li><i class="bi bi-lock"></i> Collaborated with cross-functional teams to analyze requirements and
+                deliver efficient, <b>secure</b> solutions.</li>
+              <li><i class="bi bi-tools"></i> Managed <b>backend services</b>, preventing outages and ensuring high
+                availability.</li>
+              <li><i class="bi bi-bar-chart-line"></i> Monitored <b>application logs</b>, proactively identifying and
+                fixing errors.</li>
             </ul>
             </p>
           </div>

@@ -153,10 +153,13 @@
    */
   function aosInit() {
     AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
+      duration: 800,
+      easing: 'ease-out-cubic',
+      delay: 50,
       once: true,
-      mirror: false
+      mirror: true,
+      anchorPlacement: 'top-bottom',
+      offset: 120,
     });
   }
   window.addEventListener('load', aosInit);
@@ -274,9 +277,33 @@
    */
   new PureCounter();
 
-  /**
-   * Floating accent color change button
-   */
+//   /**
+//  * This script updates the accent color of the page based on the current day. 
+//  * It generates a new random color each day, stores it in localStorage, and applies it as the CSS variable.
+//  */
+//   window.addEventListener("load", () => {
+//     localStorage.removeItem("accentColor");
+//     updateAccentColor();
+//   });
+
+//   function updateAccentColor() {
+//     let today = new Date(Date.now() + 86400000).toISOString().split("T")[0];
+
+//     let storedDate = localStorage.getItem("accentColorDate");
+//     let storedColor = localStorage.getItem("accentColor");
+
+//     if (!storedDate || storedDate !== today || !storedColor) {
+//       let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+//       let newColor = "#" + randomColor.padStart(6, "0");
+
+//       document.documentElement.style.setProperty("--accent-color", newColor);
+//       localStorage.setItem("accentColorDate", today);
+//       localStorage.setItem("accentColor", newColor);
+//     } else {
+//       document.documentElement.style.setProperty("--accent-color", storedColor);
+//     }
+//   }
+
   function changeAccentColor() {
     let newColor = getRandomColor();
     document.documentElement.style.setProperty('--accent-color', newColor);
@@ -344,8 +371,26 @@
   calculateAge();
 
   /**
-   * Handle form submission 
+   * Initializes ScrollReveal for the element with the ID "sr" if it exists.
    */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const element = document.getElementById('sr');
+    if (element) {
+      ScrollReveal({
+        reset: false
+      }).reveal('#sr', {
+        delay: 300,
+        duration: 1000,
+      });
+    }
+  });
+
+
+  /**
+     * Handle form submission 
+     */
+  const encodedUrl = "aHR0cHM6Ly93b3JrZXJmb3IuZm9ybXdvcmtlci53b3JrZXJzLmRldi8=";
   document.querySelector(".php-email-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -366,7 +411,7 @@
     successMessage.style.display = "none";
     submitButton.disabled = true;
 
-    fetch("https://workerfor.formworker.workers.dev/", {
+    fetch(atob(encodedUrl), {
       method: "POST",
       body: formEntries,
       mode: "no-cors"
@@ -390,4 +435,5 @@
       submitButton.disabled = false;
     });
   });
+
 })()
