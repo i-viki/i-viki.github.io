@@ -277,6 +277,79 @@
    */
   new PureCounter();
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const contextMenu = document.getElementById("context-menu");
+    const copyTextItem = document.getElementById("copy-text");
+    let selectedText = ""; // Store selected text
+
+    document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+        
+        selectedText = window.getSelection().toString().trim();
+        updateCopyState();
+
+        contextMenu.style.top = `${event.clientY}px`;
+        contextMenu.style.left = `${event.clientX}px`;
+        contextMenu.classList.add("active");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!contextMenu.contains(event.target)) {
+            hideContextMenu();
+        }
+    });
+
+    document.getElementById("refresh").addEventListener("click", () => {
+        location.reload();
+        hideContextMenu();
+    });
+
+    document.getElementById("go-back").addEventListener("click", () => {
+        history.back();
+        hideContextMenu();
+    });
+
+    document.getElementById("scroll-top").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        hideContextMenu();
+    });
+
+    function updateCopyState() {
+        if (selectedText.length > 0) {
+            copyTextItem.classList.remove("disabled");
+            copyTextItem.onclick = () => {
+                copyText();
+                hideContextMenu();
+            };
+        } else {
+            copyTextItem.classList.add("disabled");
+            copyTextItem.onclick = null;
+        }
+    }
+
+    function copyText() {
+        if (selectedText.length > 0) {
+            navigator.clipboard.writeText(selectedText)
+                .then(() => {
+                   console.log(`Copied: "${selectedText}"`); 
+                })
+                .catch(err => {
+                    console.error("Failed to copy text: ", err);
+                });
+        }
+    }
+
+    function hideContextMenu() {
+        contextMenu.classList.remove("active");
+    }
+});
+
+
+
+
+
+
+
 //   /**
 //  * This script updates the accent color of the page based on the current day. 
 //  * It generates a new random color each day, stores it in localStorage, and applies it as the CSS variable.
@@ -304,21 +377,21 @@
 //     }
 //   }
 
-  function changeAccentColor() {
-    let newColor = getRandomColor();
-    document.documentElement.style.setProperty('--accent-color', newColor);
+window.changeAccentColor = function () {
+  let newColor = getRandomColor();
+  document.documentElement.style.setProperty('--accent-color', newColor);
 
-    // Update the small color circle
-    const colorIndicator = document.querySelector(".color-indicator");
-    if (colorIndicator) {
-      colorIndicator.style.backgroundColor = newColor;
-    }
+  // Update the small color circle
+  const colorIndicator = document.querySelector(".color-indicator");
+  if (colorIndicator) {
+    colorIndicator.style.backgroundColor = newColor;
   }
+};
 
-  function getRandomColor() {
-    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
-  }
+function getRandomColor() {
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
+}
 
   document.addEventListener("DOMContentLoaded", () => {
     const button = document.querySelector(".floating-button");
