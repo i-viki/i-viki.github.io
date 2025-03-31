@@ -283,66 +283,66 @@
     let selectedText = ""; // Store selected text
 
     document.addEventListener("contextmenu", (event) => {
-        event.preventDefault();
-        
-        selectedText = window.getSelection().toString().trim();
-        updateCopyState();
+      event.preventDefault();
 
-        contextMenu.style.top = `${event.clientY}px`;
-        contextMenu.style.left = `${event.clientX}px`;
-        contextMenu.classList.add("active");
+      selectedText = window.getSelection().toString().trim();
+      updateCopyState();
+
+      contextMenu.style.top = `${event.clientY}px`;
+      contextMenu.style.left = `${event.clientX}px`;
+      contextMenu.classList.add("active");
     });
 
     document.addEventListener("click", (event) => {
-        if (!contextMenu.contains(event.target)) {
-            hideContextMenu();
-        }
+      if (!contextMenu.contains(event.target)) {
+        hideContextMenu();
+      }
     });
 
     document.getElementById("refresh").addEventListener("click", () => {
-        location.reload();
-        hideContextMenu();
+      location.reload();
+      hideContextMenu();
     });
 
     document.getElementById("go-back").addEventListener("click", () => {
-        history.back();
-        hideContextMenu();
+      history.back();
+      hideContextMenu();
     });
 
     document.getElementById("scroll-top").addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        hideContextMenu();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      hideContextMenu();
     });
 
     function updateCopyState() {
-        if (selectedText.length > 0) {
-            copyTextItem.classList.remove("disabled");
-            copyTextItem.onclick = () => {
-                copyText();
-                hideContextMenu();
-            };
-        } else {
-            copyTextItem.classList.add("disabled");
-            copyTextItem.onclick = null;
-        }
+      if (selectedText.length > 0) {
+        copyTextItem.classList.remove("disabled");
+        copyTextItem.onclick = () => {
+          copyText();
+          hideContextMenu();
+        };
+      } else {
+        copyTextItem.classList.add("disabled");
+        copyTextItem.onclick = null;
+      }
     }
 
     function copyText() {
-        if (selectedText.length > 0) {
-            navigator.clipboard.writeText(selectedText)
-                .then(() => {
-                   console.log(`Copied: "${selectedText}"`); 
-                })
-                .catch(err => {
-                    console.error("Failed to copy text: ", err);
-                });
-        }
+      if (selectedText.length > 0) {
+        navigator.clipboard.writeText(selectedText)
+          .then(() => {
+            console.log(`Copied: "${selectedText}"`);
+          })
+          .catch(err => {
+            console.error("Failed to copy text: ", err);
+          });
+      }
     }
 
     function hideContextMenu() {
-        contextMenu.classList.remove("active");
+      contextMenu.classList.remove("active");
     }
-});
+  });
 
 
 
@@ -350,48 +350,48 @@
 
 
 
-//   /**
-//  * This script updates the accent color of the page based on the current day. 
-//  * It generates a new random color each day, stores it in localStorage, and applies it as the CSS variable.
-//  */
-//   window.addEventListener("load", () => {
-//     localStorage.removeItem("accentColor");
-//     updateAccentColor();
-//   });
+  //   /**
+  //  * This script updates the accent color of the page based on the current day. 
+  //  * It generates a new random color each day, stores it in localStorage, and applies it as the CSS variable.
+  //  */
+  //   window.addEventListener("load", () => {
+  //     localStorage.removeItem("accentColor");
+  //     updateAccentColor();
+  //   });
 
-//   function updateAccentColor() {
-//     let today = new Date(Date.now() + 86400000).toISOString().split("T")[0];
+  //   function updateAccentColor() {
+  //     let today = new Date(Date.now() + 86400000).toISOString().split("T")[0];
 
-//     let storedDate = localStorage.getItem("accentColorDate");
-//     let storedColor = localStorage.getItem("accentColor");
+  //     let storedDate = localStorage.getItem("accentColorDate");
+  //     let storedColor = localStorage.getItem("accentColor");
 
-//     if (!storedDate || storedDate !== today || !storedColor) {
-//       let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-//       let newColor = "#" + randomColor.padStart(6, "0");
+  //     if (!storedDate || storedDate !== today || !storedColor) {
+  //       let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  //       let newColor = "#" + randomColor.padStart(6, "0");
 
-//       document.documentElement.style.setProperty("--accent-color", newColor);
-//       localStorage.setItem("accentColorDate", today);
-//       localStorage.setItem("accentColor", newColor);
-//     } else {
-//       document.documentElement.style.setProperty("--accent-color", storedColor);
-//     }
-//   }
+  //       document.documentElement.style.setProperty("--accent-color", newColor);
+  //       localStorage.setItem("accentColorDate", today);
+  //       localStorage.setItem("accentColor", newColor);
+  //     } else {
+  //       document.documentElement.style.setProperty("--accent-color", storedColor);
+  //     }
+  //   }
 
-window.changeAccentColor = function () {
-  let newColor = getRandomColor();
-  document.documentElement.style.setProperty('--accent-color', newColor);
+  window.changeAccentColor = function () {
+    let newColor = getRandomColor();
+    document.documentElement.style.setProperty('--accent-color', newColor);
 
-  // Update the small color circle
-  const colorIndicator = document.querySelector(".color-indicator");
-  if (colorIndicator) {
-    colorIndicator.style.backgroundColor = newColor;
+    // Update the small color circle
+    const colorIndicator = document.querySelector(".color-indicator");
+    if (colorIndicator) {
+      colorIndicator.style.backgroundColor = newColor;
+    }
+  };
+
+  function getRandomColor() {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
   }
-};
-
-function getRandomColor() {
-  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  return "#" + randomColor.padStart(6, "0"); // Ensures a valid 6-digit hex code
-}
 
   document.addEventListener("DOMContentLoaded", () => {
     const button = document.querySelector(".floating-button");
