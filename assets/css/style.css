@@ -584,7 +584,10 @@ h6 {
 
 .bi {
   color: var(--accent-color);
-  padding-right: 5px;
+}
+.list-unstyled .bi {
+  color: var(--accent-color);
+  padding-right: 5px !important;
 }
 
 .no-bullets {
@@ -1010,6 +1013,7 @@ p {
   font-weight: 600;
   margin-bottom: 10px;
   border: 0.5px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  line-height: 0.8;
 }
 
 .resume .resume-item ul {
