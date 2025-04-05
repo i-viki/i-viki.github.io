@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'snap';
-  src: url('../fonts/Graphik-Regular.woff2') format('woff');
+  src: url('/assets/fonts/Graphik-Regular.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -208,14 +208,15 @@ code {
   transform: translate(-50%, -50%);
 }
 
+
 .bg h1 {
   font-size: 10vw;
   opacity: 0.09;
   text-align: center;
+  font-family: Arial, sans-serif;
+  white-space: nowrap;
 }
 
-
-/* Hero Container - Flex Row */
 .hero-container {
   display: flex;
   justify-content: space-around;
@@ -223,11 +224,4 @@ code {
   gap: 0.1rem;
   width: 80%;
   max-width: 1200px;
-}
-
-/* Background Text Styling */
-.bg h1 {
-  font-size: 15rem;
-  opacity: 0.09;
-  text-align: center;
 }

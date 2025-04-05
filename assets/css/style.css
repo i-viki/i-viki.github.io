@@ -14,11 +14,11 @@
 :root {
   /* Sizes & Spacing */
   --indicator-size: 8px;
-  --radius-xl: .75rem;
+  --radius-xl: 0.75rem;
   --radius-sm: calc(var(--radius) - 4px);
-  --radius: .6rem;
-  --spacing: .25rem;
-  --text-xs: .75rem;
+  --radius: 0.6rem;
+  --spacing: 0.25rem;
+  --text-xs: 0.75rem;
   --text-xs--line-height: 1.33333;
 
   /* Fonts */
@@ -31,29 +31,41 @@
   --mono-fira: "Fira Code", monospace;
   --mono-space: "Space Mono", monospace;
   --mono-source: "Source Code Pro", monospace;
+  --sans-noto: "Noto Sans", sans-serif;
+  --sans-open: "Open Sans", sans-serif;
+  --ls-tight: 0em;
+  --ls-normal: 0.025em;
+  --ls-loose: 0.05em;
+
+  /* Normal styles */
+  --font-poppins: "Poppins", sans-serif;
+  --poppins-thin: 100;
+  --poppins-extralight: 200;
+  --poppins-light: 300;
+  --poppins-regular: 400;
+  --poppins-medium: 500;
+  --poppins-semibold: 600;
+  --poppins-bold: 700;
+  --poppins-extrabold: 800;
+  --poppins-black: 900;
+
+  /* Italic styles */
+  --poppins-style-normal: normal;
+  --poppins-style-italic: italic;
 
   /* Effects */
   --blur-effect: blur(5px);
 
   /* Global Colors */
-  --background-color: #000000;
-  /* Main background */
-  --default-color: #f2f2f2cc;
-  /* Default text color */
-  --default-title-color: #fafafa;
-  /* Title color */
-  --heading-color: #aaaaaa;
-  /* Heading and subheading color */
-  --accent-color: #eb9c4c;
-  /* Brand accent color */
-  --surface-color: rgba(255, 255, 255, 0.08);
-  /* Background for boxed elements */
-  --contrast-color: #000000;
-  /* Text contrast color */
-  --hightlighter-color: rgba(255, 255, 255, 0.15);
-  /* Highlight hover effects */
-  --color-neutral-900: oklch(.205 0 0);
-  /* Deep neutral for shadows and borders */
+  --background-color: #000000; /* Main background */
+  --default-color: #f2f2f2cc; /* Default text color */
+  --default-title-color: #fafafa; /* Title color */
+  --heading-color: #aaaaaa; /* Heading and subheading color */
+  --accent-color: #eb9c4c; /* Brand accent color */
+  --surface-color: rgba(255, 255, 255, 0.08); /* Background for boxed elements */
+  --contrast-color: #000000; /* Text contrast color */
+  --hightlighter-color: rgba(255, 255, 255, 0.15); /* Highlight hover effects */
+  --color-neutral-900: oklch(0.205 0 0); /* Deep neutral for shadows and borders */
 }
 
 * {
@@ -585,6 +597,7 @@ h6 {
 .bi {
   color: var(--accent-color);
 }
+
 .list-unstyled .bi {
   color: var(--accent-color);
   padding-right: 5px !important;
@@ -630,9 +643,10 @@ section .container {
   section.section-show {
     top: 80px;
   }
- .box.techbox {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+
+  .box.techbox {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
 }
@@ -844,7 +858,7 @@ p {
   text-align: justify;
 }
 
-.box.techbox{
+.box.techbox {
   justify-content: center;
   padding: 50px;
   margin-block: 0px;
@@ -852,6 +866,7 @@ p {
   padding-right: 110px;
   gap: 25px;
 }
+
 /*--------------------------------------------------------------
 # Interests Section
 --------------------------------------------------------------*/
@@ -863,7 +878,7 @@ p {
   transition: 0.3s;
   border: 0.5px solid color-mix(in srgb, var(--default-color), transparent 90%);
   position: relative;
-  border-radius: 0.5vw;
+  border-radius: var(--radius-xl);
   backdrop-filter: var(--blur-effect);
 }
 
@@ -950,6 +965,13 @@ p {
   top: 10px;
 }
 
+/* em {
+  font-family: var(--font-poppins);
+  font-weight: var(--poppins-regular);
+  letter-spacing: var(--ls-loose);
+  font-size: 0.94em;
+  font-style: var(--poppins-style-italic);
+} */
 .testimonials .testimonial-item p {
   font-style: italic;
   margin: 0 15px 0 15px;

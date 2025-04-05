@@ -1,17 +1,19 @@
-// Select the heading element
-const heading = document.getElementById('heading');
+// main.js
 
-// Function to update the text based on screen size
-function updateText() {
-  if (window.innerWidth <= 768) {
-    heading.innerHTML = 'J<span class="color">V</span>'; // Mobile-specific content with color
-  } else {
-    heading.innerHTML = 'JayaV<span class="color">i</span>gnesh'; // Desktop content
+document.addEventListener('DOMContentLoaded', () => {
+  const heading = document.getElementById('heading');
+
+  function updateText() {
+    if (window.innerWidth <= 768) {
+      heading.innerHTML = 'J<span class="color">V</span>'; // Mobile-specific
+    } else {
+      heading.innerHTML = 'JayaV<span class="color">i</span>gnesh'; // Desktop
+    }
   }
-}
 
-// Call the function initially to set the correct text
-updateText();
+  // Initial call
+  updateText();
 
-// Add event listener to handle screen resize
-window.addEventListener('resize', updateText);
+  // Listen to screen resize
+  window.addEventListener('resize', updateText);
+});
