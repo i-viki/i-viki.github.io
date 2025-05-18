@@ -403,20 +403,29 @@
   /**
  * Initialize and update IST time display
  */
-
+  function getEmojiForHour(hour) {
+    if (hour >= 0 && hour < 3) return "🌑";
+    if (hour >= 3 && hour < 6) return "🌘";  
+    if (hour >= 6 && hour < 12) return "🌞"; 
+    if (hour >= 12 && hour < 17) return "🌤️"; 
+    if (hour >= 17 && hour < 19) return "🌇"; 
+    if (hour >= 19 && hour < 21) return "🌙"; 
+    if (hour >= 21 && hour < 24) return "🌚"; 
+    return "🕰️";
+  }
   function updateTime() {
     const now = new Date();
-
     const options = { timeZone: "Asia/Kolkata", hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit" };
     const istTime = now.toLocaleTimeString("en-US", options);
-
-    const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+    const dateOptions = { weekday: "short", year: "numeric", month: "short", day: "numeric" };
+    const currentDate = now.toLocaleDateString("en-US", dateOptions);
     const istOffset = 5.5 * 60 * 60 * 1000;
     const gmtDifference = `GMT+${(istOffset / 3600000).toFixed(1)}`;
-
+    const hour = now.getHours();
+    const emoji = getEmojiForHour(hour);
     const timeElement = document.getElementById("time");
     if (timeElement) {
-      timeElement.innerText = `${istTime} ${gmtDifference}`;
+      timeElement.innerHTML = `${emoji} ${currentDate} | ${istTime} (${gmtDifference})`;
     }
   }
 
@@ -467,46 +476,44 @@
   document.querySelector(".php-email-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let form = new FormData(this);
-    let formEntries = new URLSearchParams();
+    const form = new FormData(this);
+    const formEntries = new URLSearchParams(form);
+    const submitButton = this.querySelector(".submit-btn");
 
-    for (let pair of form.entries()) {
-      formEntries.append(pair[0], pair[1]);
-    }
-
-    let submitButton = this.querySelector("button[type='submit']");
-    let loadingMessage = document.querySelector(".loading");
-    let errorMessage = document.querySelector(".error-message");
-    let successMessage = document.querySelector(".sent-message");
-
-    loadingMessage.style.display = "block";
-    errorMessage.style.display = "none";
-    successMessage.style.display = "none";
+    submitButton.classList.remove("btn-error", "btn-success");
+    submitButton.classList.add("btn-loading");
+    submitButton.textContent = "Sending...";
     submitButton.disabled = true;
 
     fetch(atob(encodedUrl), {
       method: "POST",
       body: formEntries,
       mode: "no-cors"
-    }).then(() => {
-      loadingMessage.style.display = "none";
-      successMessage.style.display = "block";
-      this.reset();
-      setTimeout(() => {
-        successMessage.style.transition = "opacity 1s ease-out";
-        successMessage.style.opacity = "0";
+    })
+      .then(() => {
+        submitButton.classList.remove("btn-loading");
+        submitButton.classList.add("btn-success");
+        submitButton.textContent = "Message Sent!";
+        this.reset();
+
         setTimeout(() => {
-          successMessage.style.display = "none";
-          successMessage.style.opacity = "1";
-        }, 1000);
-      }, 3000);
-    }).catch(error => {
-      loadingMessage.style.display = "none";
-      errorMessage.style.display = "block";
-      console.error("❌ Form submission error:", error);
-    }).finally(() => {
-      submitButton.disabled = false;
-    });
+          submitButton.textContent = "Send Message";
+          submitButton.classList.remove("btn-success");
+          submitButton.disabled = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error("❌ Form submission error:", error);
+        submitButton.classList.remove("btn-loading");
+        submitButton.classList.add("btn-error");
+        submitButton.textContent = "Something went wrong.";
+
+        setTimeout(() => {
+          submitButton.textContent = "Send Message";
+          submitButton.classList.remove("btn-error");
+          submitButton.disabled = false;
+        }, 3000);
+      });
   });
 
 })()

@@ -679,7 +679,7 @@ section .container {
   font-weight: 700;
   text-transform: uppercase;
   font-family: var(--heading-font);
-  color: var(--default-title-color);
+  /* color: var(--default-title-color); */
 }
 
 /*--------------------------------------------------------------
@@ -889,7 +889,7 @@ p {
 }
 
 .interests .icon-box h3 {
-  font-weight: 700;
+  /* font-weight: 700; */
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -1007,7 +1007,7 @@ p {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: var(--default-title-color);
+  /* color: var(--default-title-color); */
 }
 
 .resume .resume-item {
@@ -1466,6 +1466,35 @@ p {
   backdrop-filter: var(--blur-effect);
   border-radius: 0.5vw;
 }
+.submit-btn {
+  padding: 15px;
+  font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.submit-btn.btn-loading {
+  background-color: #f0ad4e; 
+  color: #fff;
+}
+
+.submit-btn.btn-success {
+  background-color: #28a745; 
+  color: #fff;
+}
+
+.submit-btn.btn-error {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.contact-text-large{
+  font-family: var(--outfit-font);
+  margin: 0px !important; font-size: 20px !important; line-height: 25px !important; text-align: justify !important;
+}
 
 .contact .php-email-form .error-message {
   display: none;
@@ -1750,7 +1779,6 @@ textarea.form-control {
 
 #time {
   font-family: var(--mono-jetbrains);
-  display: none;
 }
 
 

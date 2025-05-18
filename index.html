@@ -31,14 +31,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Secondary Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="stylesheet">
 
   <!-- Monospace Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
@@ -124,10 +131,10 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4" data-aos="slide-up">
+        <div class="col-lg-4" id="sr">
           <img src="assets/img/profile/me.webp" class="img-fluid" alt="">
         </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="slide-up">
+        <div class="col-lg-8 pt-4 pt-lg-0 content" id="sr">
           <h3>Software Developer</h3>
           <p class="fst-italic"><em>I Write, Test, Commit... and debug (more than I'd like to admit 😂)</em></p>
           <p>
@@ -226,11 +233,11 @@
     <!-- ======= Skills  ======= -->
     <div class="skills container">
 
-      <div class="section-title">
+      <div class="section-title" id="sr">
         <h2>Skills</h2>
       </div>
 
-      <div class="row skills-content">
+      <div class="row skills-content" data-aos="fade-up">
 
         <div class="col-lg-6">
           <div class="progress">
@@ -305,7 +312,7 @@
     </div><!-- End Skills -->
     <div class="tech container" style="
     padding-bottom: 0px;">
-      <div class="section-title">
+      <div class="section-title" id="sr">
         <h2>Tech-Intresets</h2>
       </div>
       <div class="box techbox">
@@ -434,7 +441,7 @@
     <!-- ======= Interests ======= -->
     <div class="interests container">
 
-      <div class="section-title">
+      <div class="section-title" id="sr">
         <h2>Interests</h2>
       </div>
 
@@ -509,7 +516,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-up">
           <h3 class="resume-title">Summary</h3>
           <div class="resume-item pb-0">
             <h4>Jaya Vignesh</h4>
@@ -635,7 +642,7 @@
           </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-up">
           <h3 class="resume-title">Professional Experience</h3>
           <div class="resume-item">
             <h4 class="present">Developer<div class="present-indicator"></div>
@@ -903,9 +910,9 @@
 
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Tamilnadu, India 🇮🇳</p>
+            <i class="bx bx-map-pin"></i>
+            <h3>I’m Based In</h3>
+            <p>Tamilnadu, India 🇮🇳 |<span id="time"></span></p>
           </div>
         </div>
 
@@ -932,7 +939,7 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-            <p>jayavigneshj@outlook.com</p>
+            <p><a href="mailto:jayavigneshj@outlook.com">jayavigneshj@outlook.com</a></p>
           </div>
         </div>
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
@@ -945,12 +952,25 @@
       </div>
 
       <div class="row mt-4">
+        <div class="section-title">
+          <h2>Connect</h2>
+          <p>Leave a message</p>
+        </div>
         <!-- Contact Form -->
-        <div class="col-md-12">
-          <div class="section-title">
-            <h2>Connect</h2>
-            <p>Leave a message</p>
+        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="info-box">
+            <h3 style="margin: 0px; font-size: 50px;">Hello 👋</h3>
+            <p class="contact-text-large" ><br>
+              Thanks for stopping by.<br><br>
+              Curious about my work? 💡 Have questions about something you saw in my portfolio? 🖼️ I'm always happy to
+              chat 💬<br><br>
+              Whether you're just browsing 👀, looking for inspiration ✨, or thinking about how we might collaborate 🤝 feel free to reach out.<br><br>
+              I’d love to hear your thoughts 💭, answer your questions ❓, or just connect and exchange ideas 🔄<br><br>
+              Drop me a message anytime 📩 — I’m all ears 🧏‍♂️
+            </p>
           </div>
+        </div>
+        <div class="col-md-6" style="padding: 20px;">
           <div class="contact-form">
             <form class="php-email-form">
               <div class="row">
@@ -969,27 +989,19 @@
                   required></textarea>
               </div>
               <div class="text-center mt-3">
-                <button type="submit">Send Message</button>
+                <button type="submit" class="submit-btn">Send Message</button>
               </div>
               <div class="mt-4">
-                <div class="loading">Loading...</div>
+                <!-- Removed old status messages -->
+                <!-- These are no longer needed -->
+                <!--<div class="loading">Loading...</div>
                 <div class="error-message">Something went wrong. Please try again.</div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Your message has been sent. Thank you!</div> -->
               </div>
             </form>
           </div>
         </div>
-
-        <!-- New Box -->
-        <!-- <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="info-box">
-            <i class="bx bx-time"></i>
-            <h3>Coming Soon</h3>
-            <p>Building</p>
-          </div>
-        </div> -->
       </div>
-
     </div>
     </div>
   </section>
