@@ -1,0 +1,137 @@
+html[data-theme="light"] {
+
+    --background-color: #ffffff;
+    --surface-color: rgba(0, 0, 0, 0.05);
+
+    --default-color: #1a1a1a;
+    --default-title-color: #222222;
+    --heading-color: #444444;
+
+    --accent-color: #e88f35;
+
+    --hightlighter-color: rgba(0, 0, 0, 0.07);
+
+    --contrast-color: #ffffff;
+
+    --color-neutral-900: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] section .container {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="light"] #header.header-top {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme="light"] .portfolio .portfolio-wrap {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+html[data-theme="light"] .contact .info-box {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] #header .social-links a {
+    background-color: var(--surface-color)
+}
+
+
+html[data-theme="light"] #header .social-links a:hover {
+    background: 
+ color-mix(in srgb, var(--accent-color) 30%, rgb(34, 34, 34));
+}
+
+
+html[data-theme="light"] #header .container {
+    align-items: center;
+}
+
+html[data-theme="light"] body::before {
+    content: "";
+    position: fixed;
+    background: url("../img/profile/bg_light.png") top right no-repeat;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    background-blend-mode: lighten;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+html[data-theme="light"] body {
+    background-color: var(--background-color) !important;
+}
+
+html[data-theme="light"] .navbar a {
+    color: var(--default-color);
+
+}
+
+
+html[data-theme="light"] .resume .resume-item {
+    border-left: 2px solid var(--hightlighter-color);
+}
+
+html[data-theme="light"] .contact .info-box h3 {
+    color: var(--default-title-color);
+}
+
+@media (max-width: 768px) {
+    html[data-theme="light"] body::before {
+        position: absolute;
+        height: 100%;
+        min-height: 100vh;
+        background-attachment: scroll !important;
+        background-color: rgb(255, 255, 255) !important;
+    }
+}
+
+html[data-theme="light"] .counts .count-box i {
+    background: var(--background-color);
+    border: 3.5px solid var(--heading-color);
+}
+
+@media (max-width: 768px) {
+
+    #header-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    html[data-theme="light"] #header-content .terminal-path,
+    html[data-theme="light"] #header-content .hero-name,
+    html[data-theme="light"] #header-content .hero-role,
+    html[data-theme="light"] #header-content .hero-desc {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+}
+
+html[data-theme="light"] .counts .tooltip-text {
+    background: var(--background-color);
+}
+
+:root[data-theme="light"] #context-menu.active {
+    background: var(--background-color);
+}
+
+html[data-theme="light"] #header-content .hero-name,
+html[data-theme="light"] #header-content .hero-desc,
+html[data-theme="light"] #header-content .hero-role {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] #theme-toast {
+    background: rgba(255, 255, 255, 0.55);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #222;
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+}

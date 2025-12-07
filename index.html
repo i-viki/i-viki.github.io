@@ -8,7 +8,8 @@
   <meta name="google-site-verification" content="NPdIT-QchVhRBU5cMvxAlFArAo8Agdjr4G8n6k0Ljgo" />
   <meta http-equiv="Access-Control-Allow-Origin" content="*">
   <title>Jaya Vignesh | Portfolio</title>
-  <meta name="description" content="Welcome to the portfolio of Jayavignesh, a programmer showcasing projects, resumes, and personal information. Explore Jayavignesh's work and insights into the world of programming.">
+  <meta name="description"
+    content="Welcome to the portfolio of Jayavignesh, a programmer showcasing projects, resumes, and personal information. Explore Jayavignesh's work and insights into the world of programming.">
   <meta name="keywords" content="jv,jayavignesh,jayavigneshj,jayavignesh-portfolio,akajv,iamjv">
 
   <!-- Preconnect & DNS Prefetch -->
@@ -45,7 +46,9 @@
 
   <!-- Monospace Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
@@ -61,6 +64,7 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
   <!-- Main Styles -->
+  <link href="assets/css/light.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- JS Scripts -->
@@ -69,31 +73,42 @@
   <script src="assets/vendor/aos/aos.js" defer></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      document.documentElement.setAttribute('data-theme', saved || 'dark');
+    })();
+  </script>
+
 </head>
 
-
-
 <body>
+  <button id="theme-toggle" class="theme-btn">
+    <span><i class="ri-sun-fill"></i></span>
+  </button>
+  <div id="theme-toast"></div>
+
+  <button class="floating-button accent-btn" onclick="changeAccentColor()">
+    <span><i class="ri-rainbow-line"></i></i></span>
+  </button>
 
   <!-- ======= Header ======= -->
   <header id="header">
-    <div> <button class="floating-button" onclick="changeAccentColor()">
-        <span class="button-text">🎨 Change Accent</span>
-        <span class="color-indicator"></span> <!-- Small color circle -->
-      </button></div>
     <div class="container" id="sr">
-      <p class="greetings">Hey, there! <img id="wave-img" class="wave" src="./assets/img/wave-still.gif"
-          alt="Waving Hand"></p>
-      <h1>
-        <a href="index.html">
-          <span class="im" style="color:rgba(255, 255, 255, 0.589) ;">I'm</span><span class="name"> Jaya Vignesh</span>
-        </a>
-      </h1>
-
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>a <span class="typed"></span><span class="blur-text" id="extra-text" style="border-bottom:0px"> from
-          Tamilnadu.</span></h2>
+      <div id="header-content">
+        <p class="terminal-path">$ <span class="typed-terminal"></span></p>
+        <h1 class="hero-name">
+          <a href="index.html">
+            <span class="name"> Jaya Vignesh <img id="wave-img" class="wave" src="./assets/img/wave-still.gif"
+                alt="Waving Hand"></p></span>
+          </a>
+        </h1>
+        <h2 class="hero-role"><span class="role-accent">&gt;</span> Backend Developer</h2>
+        <p class="hero-desc">
+          I build backend systems, design APIs, and work with cloud infrastructure.
+          Focused on Java, Spring Boot, and production-grade architecture.
+        </p>
+      </div>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
@@ -115,6 +130,12 @@
         <a href="https://www.linkedin.com/in/jayavigneshj/" class="linkedin" aria-label="Connect on LinkedIn"><i
             class="bi bi-linkedin" aria-hidden="true"></i></a>
       </div>
+      <div class="latest-notes">
+        <div class="notes-title">:: LATEST_HERE</div>
+        <div class="notes-date">Dec 07, 2025</div>
+        <div class="notes-desc">Portfolio Update in Progress</div>
+      </div>
+
 
 
     </div>
@@ -135,47 +156,79 @@
           <img src="assets/img/profile/me.webp" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" id="sr">
-          <h3>Software Developer</h3>
+          <h3>Driven by curiosity and clean design, creating impactful software.</h3>
           <p class="fst-italic"><em>I Write, Test, Commit... and debug (more than I'd like to admit 😂)</em></p>
           <p>
-            I started my journey as a <b class="gradient-text">Computer Science</b> student with a deep curiosity for
-            technology and how things work.
-            During college, I explored machine learning, cloud computing, and software development, constantly expanding
-            my skill set.
+            My journey began as a <b class="gradient-text">Computer Science</b> student driven by a persistent curiosity
+            about how
+            systems behave beneath the surface. I always wanted to understand the “why” behind technology, not just the
+            “how.”
+            During college, I explored machine learning, cloud platforms, and software development, gradually shaping a
+            strong
+            foundation in problem-solving and engineering principles.
           </p>
 
           <p>
-            After graduating, I joined <b class="gradient-text">TCS</b> as a Software Development Engineer (SDE),
-            where I specialize in backend development, microservices, and cloud technologies like AWS</b>.
-            Over time, I have honed my expertise in Java, databases, API development, and scalable architectures.
+            After graduating, I joined <b class="gradient-text">TCS</b> as a Software Development Engineer (SDE). I
+            moved deeper
+            into backend engineering, enterprise integrations, and microservice design. My work involves Java, Spring
+            Boot, APIs,
+            databases, and distributed systems. This helped me sharpen my engineering discipline and understand what
+            real
+            production software requires in terms of reliability, structure, and clarity.
           </p>
 
           <p>
-            My passion for <b class="gradient-text">Full-stack development</b>, <b class="gradient-text">DevOps</b>, and
-            <b class="gradient-text">cloud architecture</b>
-            drives me to continuously learn and adapt to emerging technologies.
-            I believe in building secure, high-performance, and impactful solutions
-            that enhance user experience and efficiency. 🚀
+            Over time, my interests expanded beyond backend logic into the broader ecosystem that supports real-world
+            applications.
+            I developed a strong passion for <b class="gradient-text">Cloud architecture</b>, <b
+              class="gradient-text">DevOps</b>,
+            automation, and performance-focused engineering. I enjoy working across the full lifecycle of a system, from
+            design
+            to deployment, ensuring that applications remain secure, efficient, and capable of handling production
+            workloads. I am
+            continuously exploring scalability patterns, infrastructure best practices, observability tools, and the
+            evolution of
+            modern platforms. This mindset encourages me to refine my craft every day and build systems that remain
+            stable under
+            pressure.
           </p>
+
+          <p>
+            Outside my core backend work, I also enjoy <b class="gradient-text">Full-stack development</b> and exploring
+            new
+            frameworks, tools, and cloud-native technologies. I believe great engineers never stop learning. My goal is
+            to build
+            solutions that are thoughtful, high-performance, and impactful for both teams and users. 🚀
+          </p>
+
 
 
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong><span>
+                <li><i class="bi bi-chevron-right"></i> <strong>Role:</strong> <span>Backend Developer @ TCS</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>1+ Years</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>
                     <div id="age"></div>
                   </span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>You're already here!</span></li>
               </ul>
             </div>
+
             <div class="col-lg-6">
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>CSE Undergrad</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jayavignesh324@gmail.com</span>
                 </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Tech Stack:</strong> <span>Java, JAX-RS, RESTEasy,
+                    MySQL</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Interests:</strong> <span>Microservices, Cloud,
+                    DevOps</span></li>
               </ul>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -960,11 +1013,12 @@
         <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
           <div class="info-box">
             <h3 style="margin: 0px; font-size: 50px;">Hello 👋</h3>
-            <p class="contact-text-large" ><br>
+            <p class="contact-text-large"><br>
               Thanks for stopping by.<br><br>
               Curious about my work? 💡 Have questions about something you saw in my portfolio? 🖼️ I'm always happy to
               chat 💬<br><br>
-              Whether you're just browsing 👀, looking for inspiration ✨, or thinking about how we might collaborate 🤝 feel free to reach out.<br><br>
+              Whether you're just browsing 👀, looking for inspiration ✨, or thinking about how we might collaborate 🤝
+              feel free to reach out.<br><br>
               I’d love to hear your thoughts 💭, answer your questions ❓, or just connect and exchange ideas 🔄<br><br>
               Drop me a message anytime 📩 — I’m all ears 🧏‍♂️
             </p>
@@ -1042,4 +1096,3 @@
 </body>
 
 </html>
-

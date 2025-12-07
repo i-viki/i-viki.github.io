@@ -194,23 +194,32 @@
   /**
    * Typed
    */
-  document.addEventListener("DOMContentLoaded", function () {
-    const extraText = document.getElementById('extra-text');
-    new Typed('.typed', {
-      strings: ['Programmer', 'Tech Geek', 'Developer'],
-      loop: false,
-      cursorChar: '',
-      typeSpeed: 100,
-      backSpeed: 5,
-      backDelay: 1000,
-      onComplete: () => {
-        setTimeout(() => {
-          extraText.classList.add('show-text');
-        }, 100);
-      }
-    });
-  });
+  (function () {
+    if (typeof Typed === 'undefined') return;
 
+    new Typed('.typed-terminal', {
+      strings: [
+        './standalone.sh',
+        '[INFO] JBoss runtime initializing',
+        '[INFO] Deploying backend.war',
+        '[INFO] Binding service on :8080',
+        '[OK] Startup sequence complete',
+        '[LOG] tail -f server.log',
+        '[VERIFY] java-runtime --profile=prod --quality=verified'
+      ],
+
+
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1200,
+      startDelay: 600,
+      smartBackspace: true,
+      loop: false,
+      showCursor: true,
+      cursorChar: '_',
+      contentType: 'html'
+    });
+  })();
   /**
    * Porfolio isotope and filter
    */
@@ -405,12 +414,12 @@
  */
   function getEmojiForHour(hour) {
     if (hour >= 0 && hour < 3) return "🌑";
-    if (hour >= 3 && hour < 6) return "🌘";  
-    if (hour >= 6 && hour < 12) return "🌞"; 
-    if (hour >= 12 && hour < 17) return "🌤️"; 
-    if (hour >= 17 && hour < 19) return "🌇"; 
-    if (hour >= 19 && hour < 21) return "🌙"; 
-    if (hour >= 21 && hour < 24) return "🌚"; 
+    if (hour >= 3 && hour < 6) return "🌘";
+    if (hour >= 6 && hour < 12) return "🌞";
+    if (hour >= 12 && hour < 17) return "🌤️";
+    if (hour >= 17 && hour < 19) return "🌇";
+    if (hour >= 19 && hour < 21) return "🌙";
+    if (hour >= 21 && hour < 24) return "🌚";
     return "🕰️";
   }
   function updateTime() {
@@ -515,5 +524,73 @@
         }, 3000);
       });
   });
+
+  /*******************************************************
+ * THEME TOGGLE (Light <-> Dark)
+ *******************************************************/
+  (function () {
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    if (!toggleBtn) return; 
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
+
+    function updateIndicator() {
+      const indicator = document.querySelector(".color-indicator");
+      if (!indicator) return;
+      const theme = document.documentElement.getAttribute("data-theme");
+      indicator.style.backgroundColor = theme === "light" ? "#000" : "#fff";
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem("theme");
+
+      if (saved) {
+        applyTheme(saved);
+      } else {
+        applyTheme("dark");
+      }
+
+      updateIndicator();
+    }
+
+    /* ==========================
+       TOAST POPUP FUNCTION
+       ========================== */
+    function showThemeToast(message) {
+      const toast = document.getElementById("theme-toast");
+      if (!toast) return;
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      // Remove after delay
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2400);
+    }
+
+    /* ==========================
+       THEME TOGGLE CLICK
+       ========================== */
+    toggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const newTheme = current === "dark" ? "light" : "dark";
+      applyTheme(newTheme);
+      updateIndicator();
+      if (newTheme === "light") {
+        showThemeToast("Holaaa! Light mode here… Expecto Patronum ✨");
+      } else {
+        showThemeToast("Back to the shadows… Dark mode activated ⚡");
+      }
+    });
+    initTheme();
+  })();
+
+
 
 })()
